@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Dependencies")]
     [SerializeField] private CharacterController _controller;
     [SerializeField] private FixedJoystick _joystick;
+    [SerializeField] private string _dirtTag;
 
     [Header("Settings")]
     [SerializeField] private float _speed;
@@ -39,6 +40,14 @@ public class PlayerMovement : MonoBehaviour
         if (!_controller.isGrounded)
         {
             _direction += Physics.gravity;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag(_dirtTag))
+        {
+            other.GetComponent<Dirt>().CleanDirt();
         }
     }
 
