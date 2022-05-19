@@ -18,18 +18,28 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        _direction.z = _joystick.Direction.y; 
+        CalculateDirection();
+    }
+
+    private void FixedUpdate()
+    {
+        _controller.Move(_direction);
+    }
+
+    private void CalculateDirection()
+    {
+        _direction.z = _joystick.Direction.y;
         _direction.x = _joystick.Direction.x;
         _direction.y = 0f;
         _direction.Normalize();
         Log("My direction vector normalized " + _direction);
         _direction = _direction * Time.deltaTime * _speed;
         Log("My final vector values " + _direction);
-    }
 
-    private void FixedUpdate()
-    {
-        _controller.Move(_direction);
+        if (!_controller.isGrounded)
+        {
+            _direction += Physics.gravity;
+        }
     }
 
     void Log(object message)
