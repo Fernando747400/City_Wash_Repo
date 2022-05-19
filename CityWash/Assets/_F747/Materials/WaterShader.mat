@@ -48,12 +48,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _FoamStrength: 8
+    - _FoamStrength: 9
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Speed: 1
-    - _VoronoiPower: -0.5
-    - _VoronoiSpeed: 1
+    - _Speed: 2
+    - _VoronoiPower: -1
+    - _VoronoiSpeed: 2
     m_Colors:
-    - _Color: {r: 0, g: 0.7780657, b: 1, a: 1}
+    - _Color: {r: 0, g: 0.8969126, b: 1, a: 1}
   m_BuildTextureStacks: []
