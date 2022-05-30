@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WaterShader
+  m_Name: WaterShaderCurved
   m_Shader: {fileID: -6465566751694194690, guid: 04479911bb098964197b6c67035e9228,
     type: 3}
   m_ValidKeywords: []
@@ -52,7 +52,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Speed: 2
-    - _VoronoiPower: -1
+    - _VoronoiPower: -1.5
     - _VoronoiSpeed: 2
     m_Colors:
     - _Color: {r: 0, g: 0.8969126, b: 1, a: 1}

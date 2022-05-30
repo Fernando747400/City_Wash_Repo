@@ -10,11 +10,13 @@ public class CameraFollow : MonoBehaviour
     [Header("Debugging")]
     [SerializeField] private Logger _logger;
 
-    private Vector3 _initialPotiton;
+    private Vector3 _initialPosition;
     private Vector3 _offset;
+    private Vector3 _finalPosition;
     void Start()
     {
-        _initialPotiton = this.transform.position;
+        _initialPosition = this.transform.position;
+        _offset = new Vector3(_initialPosition.x - _player.transform.position.x,_initialPosition.y - _player.transform.position.y, _initialPosition.z - _player.transform.position.z);
     }
 
     void Update()
@@ -25,8 +27,8 @@ public class CameraFollow : MonoBehaviour
 
     void MoveCamera()
     {
-        _offset = new Vector3(_player.transform.position.x, _initialPotiton.y, _player.transform.position.z + _initialPotiton.z);
-        this.transform.position = _offset;
+        _finalPosition = _player.transform.position + _offset;
+        this.transform.position = _finalPosition;
     }
 
     void Log(object message)
