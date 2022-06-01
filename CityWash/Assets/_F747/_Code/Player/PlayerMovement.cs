@@ -16,15 +16,16 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Logger _logger;
 
     private Vector3 _direction = new Vector3();
+    private bool _isPaused = true;
 
     private void Update()
     {
-        CalculateDirection();
+         CalculateDirection();
     }
 
     private void FixedUpdate()
     {
-        _controller.Move(_direction);
+        if(!_isPaused) _controller.Move(_direction);
     }
 
     private void CalculateDirection()
@@ -50,6 +51,11 @@ public class PlayerMovement : MonoBehaviour
             other.GetComponent<Dirt>().CleanDirt();
         }
     }
+
+    public void PausePlayer() => _isPaused = true;
+    public void UnpausePlayer() => _isPaused = false;
+
+
 
     void Log(object message)
     {

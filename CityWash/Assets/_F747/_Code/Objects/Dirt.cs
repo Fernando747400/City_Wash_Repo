@@ -20,6 +20,7 @@ public class Dirt : MonoBehaviour
 
     private void DestroyObject()
     {
+        GameManager.current.CountPoint();
         Log("Time to get destroyed " + this.gameObject.name);
         Destroy(this.gameObject);
     }
