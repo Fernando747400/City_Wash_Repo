@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
         //DontDestroyOnLoad(this.gameObject);
 
         Application.targetFrameRate = 60;
+        CreatePlayerPrefs();
     }
 
     [Header("Events")]
@@ -46,6 +47,23 @@ public class GameManager : MonoBehaviour
     public void ResetScene()
     {
         SceneManager.LoadScene(0);
+    }
+
+    private void CreatePlayerPrefs()
+    {
+        if (!PlayerPrefs.HasKey("Coins")){
+            PlayerPrefs.SetInt("Coins",0);
+        }
+
+        if (!PlayerPrefs.HasKey("Player_speed"))
+        {
+            PlayerPrefs.SetFloat("Player_speed", 1);
+        }
+
+        if (!PlayerPrefs.HasKey("Player_scale"))
+        {
+            PlayerPrefs.SetFloat("Player_scale", 1);
+        }
     }
 
     void Log(object message)

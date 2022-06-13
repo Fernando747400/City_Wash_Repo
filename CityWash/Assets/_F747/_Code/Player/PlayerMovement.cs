@@ -9,11 +9,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private FixedJoystick _joystick;
     [SerializeField] private string _dirtTag;
 
-    [Header("Settings")]
-    [SerializeField] private float _speed;
-
     [Header("Debugging")]
     [SerializeField] private Logger _logger;
+
+    [HideInInspector] public float Speed;
 
     private Vector3 _direction = new Vector3();
     private bool _isPaused = true;
@@ -35,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
         _direction.y = 0f;
         _direction.Normalize();
         Log("My direction vector normalized " + _direction);
-        _direction = _direction * Time.deltaTime * _speed;
+        _direction = _direction * Time.deltaTime * Speed;
         Log("My final vector values " + _direction);
 
         if (!_controller.isGrounded)
@@ -54,8 +53,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void PausePlayer() => _isPaused = true;
     public void UnpausePlayer() => _isPaused = false;
-
-
 
     void Log(object message)
     {
