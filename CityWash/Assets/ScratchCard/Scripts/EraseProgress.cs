@@ -57,6 +57,7 @@ namespace ScratchCardAsset
 			if (Card.IsScratched && !isCompleted)
 			{
 				UpdateProgress();
+				Debug.Log(GetProgress());
 			}
 		}
 
