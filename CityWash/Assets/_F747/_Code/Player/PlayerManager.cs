@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ScratchCardAsset;
 
 public class PlayerManager : MonoBehaviour
 {
     [Header("Dependencies")]
     [SerializeField] private PlayerMovement _playerMovement;
     [SerializeField] private GameObject _player;
+    [SerializeField] private ScratchCard _scratchCard;
 
     [Header("Settings")]
     [SerializeField] private bool _DevMode;
@@ -16,9 +18,18 @@ public class PlayerManager : MonoBehaviour
     [Header("Debugging")]
     [SerializeField] private Logger _logger;
 
+    private Vector2 position;
+
     private void Start()
     {
         _playerMovement.Speed = _speed;
+    }
+
+    private void FixedUpdate()
+    {
+        position = new Vector2(_player.transform.position.x, _player.transform.position.z);
+        _scratchCard.ScratchLine(Vector2.zero, position);
+        Debug.Log("Scartching at " + position);
     }
 
     public void UpdateValues()
