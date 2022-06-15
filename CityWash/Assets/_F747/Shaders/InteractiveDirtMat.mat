@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DirtyTexture
-  m_Shader: {fileID: -6465566751694194690, guid: b6c4bd75f60323b45bb60637d73f86b4,
+  m_Name: InteractiveDirtMat
+  m_Shader: {fileID: -6465566751694194690, guid: 514a2f536e1f1a5419179cfd27125acb,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -21,11 +21,7 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _SampleTexture2D_c82da39aa87e4846b86fea6dfcc57716_Texture_1:
-        m_Texture: {fileID: 2800000, guid: 4aa47f1de88a608489ba4618cfa452a8, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_ce9e8c122d924e8e8cd3ad0a0820144b_Texture_1:
+    - _CleanText:
         m_Texture: {fileID: 2800000, guid: 4aa47f1de88a608489ba4618cfa452a8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -43,12 +39,17 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _LerpBlend: 1
+    - _Clean: 0
+    - _Cleaned: 0
     - _QueueControl: 0
     - _QueueOffset: 0
-    m_Colors: []
+    - _waveSmooth: 0
+    - _waveSpeed: 10
+    - _waveStartTime: 0
+    m_Colors:
+    - _waveCenter: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &5129039691146170953
+--- !u!114 &8589976147039703313
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
