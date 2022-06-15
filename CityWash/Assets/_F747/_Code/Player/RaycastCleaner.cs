@@ -6,12 +6,9 @@ public class RaycastCleaner : MonoBehaviour
 {
     [Header("Dependencies")]
     [SerializeField] private LayerMask _dirtyMask;
-    void Update()
+    void FixedUpdate()
     {
-        if (Input.GetMouseButtonDown(1))
-        {
             SendRay();
-        }
     }
 
     private void SendRay()
