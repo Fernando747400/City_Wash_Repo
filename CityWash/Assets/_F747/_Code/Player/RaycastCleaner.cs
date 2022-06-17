@@ -6,9 +6,11 @@ public class RaycastCleaner : MonoBehaviour
 {
     [Header("Dependencies")]
     [SerializeField] private LayerMask _dirtyMask;
+
+    private bool _isPaused = true;
     void FixedUpdate()
     {
-            SendRay();
+        if (!_isPaused) SendRay();
     }
 
     private void SendRay()
@@ -24,6 +26,9 @@ public class RaycastCleaner : MonoBehaviour
             }
         }
     }
+
+    public void PauseCleaningRay() => _isPaused = true;
+    public void UnpauseCleaningRay() => _isPaused = false;
 
 
 }
