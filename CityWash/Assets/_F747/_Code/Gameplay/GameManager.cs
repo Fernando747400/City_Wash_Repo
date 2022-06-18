@@ -46,7 +46,12 @@ public class GameManager : MonoBehaviour
 
     public void ResetScene()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void LoadScene(int SceneIndex)
+    {
+        SceneManager.LoadScene(SceneIndex);
     }
 
     private void CreatePlayerPrefs()
