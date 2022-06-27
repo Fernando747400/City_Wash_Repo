@@ -10,25 +10,32 @@ public class Timer : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _seconds;
 
     [Header("Settings")]
-    [SerializeField] private float _time = 90;
+    [SerializeField] public float _timeMultiplier = 15;
 
     [Header("Debugging")]
     [SerializeField] private Logger _logger;
 
     private bool _isPaused = true;
 
+    [HideInInspector] public float _time = 90;
+
 
     public float TimerTime { get { return _time; } set { _time = value; } }
 
     private void Start()
     {
-        _seconds.text = Math.Ceiling(_time).ToString();
+        InitialTimeUpdate();
     }
 
 
     void Update()
     {
         ChangeTime();
+    }
+
+    public void InitialTimeUpdate()
+    {
+        _seconds.text = Math.Ceiling(_time).ToString();
     }
 
     private void ChangeTime()
@@ -53,7 +60,8 @@ public class Timer : MonoBehaviour
                 iTween.PunchScale(_seconds.gameObject, iTween.Hash("amount", new Vector3(0.3f,0.3f,0.3f), "time", 1f));
             }
             _time -= Time.deltaTime;
-        }     
+        }
+   
     }
 
     public void PauseTimer() => _isPaused = true;

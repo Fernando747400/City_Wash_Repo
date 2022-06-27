@@ -9,6 +9,7 @@ public class Scoring : MonoBehaviour
     [Header("Dependecies")]
     [SerializeField] private TextMeshProUGUI _scoreTMP;
     [SerializeField] private TextMeshProUGUI _coinsTMP;
+    [SerializeField] private Timer _timerScript;
 
     [Header("Settings")]
     public float _targetScore = 1;
@@ -24,6 +25,8 @@ public class Scoring : MonoBehaviour
         _targetScore = GameObject.FindGameObjectsWithTag("Dirt").Length;
         _scoreTMP.text = _currentScore.ToString() + " / " + _targetScore.ToString();
         _coinsTMP.text = PlayerPrefs.GetInt("Coins").ToString();
+        _timerScript._time = _timerScript._timeMultiplier * _targetScore;
+        _timerScript.InitialTimeUpdate();
     }
 
     public void UpdateScore()
