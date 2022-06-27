@@ -8,6 +8,7 @@ TagManager:
   - Dirt
   - DirtySurface
   - Building
+  - MapGenerator
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - Buildings
   - Dirt
   - Trash
-  - 
+  - MapGenerator
   - 
   - 
   - 
